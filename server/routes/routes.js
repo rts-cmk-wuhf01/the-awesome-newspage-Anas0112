@@ -9,6 +9,9 @@ module.exports = (app) => {
       res.render('home');
    });
    app.get('/categories-post', (req, res, next) => {
+
+      let now = new Date('2019-04-14 07:00:14');
+
       res.render('categories-post');
    });
    app.get('/single-post', (req, res, next) => {
