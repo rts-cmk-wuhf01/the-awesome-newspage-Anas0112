@@ -40,3 +40,12 @@ app.listen(port, (error) => {
    console.log('\x1b[35m%s\x1b[0m', '================================================================'); // udskriver en lilla streg i konsol
    console.log('Server is listening on port %s, address: %s', port, 'http://localhost:' + port);
 });
+
+
+
+// npm install date-and-time --save
+app.locals.dateAndTime = require('date-and-time');
+app.locals.dateAndTime.locale('dk');
+app.locals.dateAndTime.setLocales('dk',{
+   'A': ['AM', 'PM']
+});
