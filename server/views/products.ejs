@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<% if(typeof products != 'undefined') { %>
+		<% products.forEach(product => { %>
+		<div>
+		   <h3><%= product.product_title %></h3>
+		   <p><%= product.product_description %></p>
+		   <span><%= product.product_price%> </span>
+		</div>
+		<% }); %>
+	 <% } %>
+
+	
+		
+	 <% if(typeof games != 'undefined') { %>
+		<% games.forEach(game => { %>
+		<div>
+		   <h3><%= game.game_title %></h3>
+		   <p><%= game.game_description %></p>
+		   <span><%= game.game_price%> </span>
+		</div>
+		<% }); %>
+	 <% } %>
+</body>
+</html>
