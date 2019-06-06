@@ -5,17 +5,11 @@ const date = require('date-and-time');
 module.exports = (app) => {
 
    app.get('/', (req, res, next) => {
-
-      let now = new Date('2019-04-14 07:00:14');
-
-      res.render('home', {
-         "fisk": 20
-      });
+      res.render('home');
    });
 
 
    app.get('/categories-post', (req, res, next) => {
-
       res.render('categories-post');
    });
 
@@ -32,10 +26,9 @@ module.exports = (app) => {
 
 
 
-
    app.get('/testdatabase',  async (req,res,next)=>{
       let db = await mysql.connect();
-      let [products] = await db.execute('SELECT * FROM products');
+      let [products] = await db.execute('SELECT * FROM products INNER JOIN categories ON category_id = fk_category_id');
       let [games] = await db.execute('SELECT * FROM games');
       db.end();
 
@@ -44,12 +37,6 @@ module.exports = (app) => {
          'games': games,
       });
    });
-
-   app.get('/test', (req, res, next) => {
-      // Test global.oplysning i EJS
-      res.render('testa');
-   });
-
 
 
 
