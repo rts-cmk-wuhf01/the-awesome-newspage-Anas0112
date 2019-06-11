@@ -4,13 +4,20 @@ const date = require('date-and-time');
 
 module.exports = (app) => {
 
-   app.get('/', (req, res, next) => {
-      res.render('home');
+   app.get('/', async (req, res, next) => {
+      let db = await mysql.connect();
+      let [categories] = await db.execute('SELECT * FROM categories');
+      db.end();
+      
+      res.render('home', {
+         'categories': categories
+      });
    });
 
 
-   app.get('/categories-post', (req, res, next) => {
-      res.render('categories-post');
+   app.get('/categories-post/:category_id', async (req, res, next) => {
+      
+      res.send(req.params.category_id);
    });
 
 

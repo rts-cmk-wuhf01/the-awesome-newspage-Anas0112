@@ -10,10 +10,10 @@
 	<% if(typeof products != 'undefined') { %>
 		<% products.forEach(product => { %>
 		<div>
-		   <h3><%= product.product_title %></h3>
-		   <p><%= product.product_description %></p>
-			<span><%= product.product_price%> </span>
-			<h1><%= product.category_title %></h1>
+		   <h3><b><%= product.product_title %></b></h3>
+			<span>Pris: <b><%= product.product_price %> Kr.</b></span>
+			<p>Kategori: <b><%= product.category_title %></b></p>
+		   <p><i>Produkt Beskrivelse:</i> <br><br> <%= product.product_description %></p>
 		</div>
 		<% }); %>
 	 <% } %>
