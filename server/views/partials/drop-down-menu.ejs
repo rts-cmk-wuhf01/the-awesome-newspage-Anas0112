@@ -1,25 +1,13 @@
 <ul class="dropdown">
 	<li><a href="/">Home</a></li>
-
-	<% if(typeof categories != 'undefined'){ %>
-		<% categories.forEach(category =>{ %>
-	   <li><a href="/category/<%=category.category_id %>"><%=category.category_title %></a></li>
-		<% }); %>
- 	<% } %>
-
+	<li><a href="/categories-post">Categories</a></li>
 	<li><a href="/single-post">Single Articles</a></li>
 	<li><a href="/about">About Us</a></li>
 	<li><a href="/contact">Contact</a></li>
 	<li><a href="#">Dropdown</a>
 		<ul class="dropdown">
 			<li><a href="/">Home</a></li>
-			
-			<% if(typeof categories != 'undefined'){ %>
-				<% categories.forEach(category =>{ %>
-	   			<li><a href="/category/<%=category.category_id %>"><%=category.category_title %></a></li>
-				<% }); %>
- 			<% } %>
-
+			<li><a href="/categories-post">Categories</a></li>
 			<li><a href="/single-post">Single Articles</a></li>
 			<li><a href="/about">About Us</a></li>
 			<li><a href="/contact">Contact</a></li>
