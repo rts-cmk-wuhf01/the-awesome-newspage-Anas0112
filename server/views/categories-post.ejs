@@ -32,6 +32,11 @@
                 <div class="col-12 col-lg-8">
                     <div class="blog-posts-area">
 
+                        
+                        <% if(typeof selectedCategory != 'undefined'){ %> 
+                            <h1><%= selectedCategory.category_title %></h1><br>
+                        <%}%>
+                         
                             <% if(typeof articles != 'undefined'){ %>
 
                                 <% if(articles.length == 0){ %>
@@ -45,7 +50,7 @@
                                             <a href="#"><img src="/img/bg-img/<%= article.article_image %>" alt=""></a>
                                         </div>
                                         <div class="post-data">
-                                            <a href="#" class="post-catagory">Finance</a>
+                                            <a href="#" class="post-catagory"><%= article.category_title %></a>
                                             <a href="#" class="post-title">
                                                 <h6><%= article.article_title %></h6>
                                             </a>
