@@ -69,7 +69,12 @@ module.exports = (app) => {
       FROM articles
       INNER JOIN authors
       ON fk_author_id = author_id
+
+      -- INNER JOIN comments
+      -- ON fk_comment_id = comment_id
+
       WHERE article_id = ?`
+
       , [req.params.article_id]);
       
       db.end();
