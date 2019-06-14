@@ -59,19 +59,13 @@ module.exports = (app) => {
       console.log(req.params.article_id)
 
       let [categories] = await db.execute('SELECT * FROM categories');
+      let [comments] = await db.execute('SELECT * FROM comments');
       
       // let [articles] = await db.execute(`SELECT article_title FROM articles WHERE article_id = ${req.params.article_id}`); // Pas på med denne version pga. SQL injections
 
       let [articles] = await db.execute(`
       SELECT
-         article_image,
-         category_title,
-         article_title,
-         author_name,
-         article_text,
-         article_likes,
-         article_id,
-
+         *
       FROM articles
       INNER JOIN authors
       ON fk_author_id = author_id
@@ -80,15 +74,14 @@ module.exports = (app) => {
       
       db.end();
 
-      console.log(articles);
-
       res.render('single-post', {
          'categories': categories,
-         'article': articles[0]
+         'article': articles[0],
+         'comments': comments
       });
 
    });
-   
+
 
 
    app.get('/about', (req, res, next) => {
