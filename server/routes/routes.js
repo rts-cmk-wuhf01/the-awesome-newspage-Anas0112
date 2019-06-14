@@ -56,9 +56,6 @@ module.exports = (app) => {
    app.get('/single-post/:article_id', async (req, res, next) => {
       let db = await mysql.connect();
 
-      // let navn = "Anas";
-      // let text = `mit navn er ${navn}. jeg er 20 år gammel`
-
       console.log(req.params.article_id)
 
       let [categories] = await db.execute('SELECT * FROM categories');
@@ -66,7 +63,15 @@ module.exports = (app) => {
       // let [articles] = await db.execute(`SELECT article_title FROM articles WHERE article_id = ${req.params.article_id}`); // Pas på med denne version pga. SQL injections
 
       let [articles] = await db.execute(`
-      SELECT *
+      SELECT
+         article_image,
+         category_title,
+         article_title,
+         author_name,
+         article_text,
+         article_likes,
+         article_id,
+
       FROM articles
       INNER JOIN authors
       ON fk_author_id = author_id
@@ -83,7 +88,7 @@ module.exports = (app) => {
       });
 
    });
-
+   
 
 
    app.get('/about', (req, res, next) => {
