@@ -2,6 +2,12 @@ const mysql = require('../config/mysql');
 
 const date = require('date-and-time');
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+   extended: true
+}));
+
 module.exports = (app) => {
 
    app.get('/', async (req, res, next) => {
@@ -59,7 +65,10 @@ module.exports = (app) => {
       console.log(req.params.article_id)
 
       let [categories] = await db.execute('SELECT * FROM categories');
-      let [comments] = await db.execute('SELECT * FROM comments');
+      let [comments] = await db.execute(`
+      SELECT *
+      FROM comments
+      `);
       
       // let [articles] = await db.execute(`SELECT article_title FROM articles WHERE article_id = ${req.params.article_id}`); // Pas på med denne version pga. SQL injections
 
@@ -69,10 +78,6 @@ module.exports = (app) => {
       FROM articles
       INNER JOIN authors
       ON fk_author_id = author_id
-
-      -- INNER JOIN comments
-      -- ON fk_comment_id = comment_id
-
       WHERE article_id = ?`
 
       , [req.params.article_id]);
@@ -98,20 +103,61 @@ module.exports = (app) => {
       res.render('contact');
    });
 
+   app.post('/contact', async (req, res, next) => {
 
+      let db = await mysql.connect();
+      let result = await db.execute(`
+         INSERT INTO messages 
+            (message_name, message_email, message_subject, message_text, message_date) 
+         VALUES 
+            (?,?,?,?,?)`, [name, email, subject, message, contactDate]);
+      db.end();
 
-   // app.get('/testdatabase',  async (req,res,next)=>{
-   //    let db = await mysql.connect();
-   //    let [products] = await db.execute('SELECT * FROM products INNER JOIN categories ON category_id = fk_category_id');
-   //    let [games] = await db.execute('SELECT * FROM games');
-   //    db.end();
+      if (result[0].affectedRows > 0) {
+         return_message.push('Tak for din besked, vi vender tilbage hurtigst muligt');
+      } else {
+         return_message.push('Din besked blev ikke modtaget.... ');
+      }
+      
+      let categories = await getCategories(); 
+      res.render('contact', {
+         'categories': categories,
+         'return_message': return_message.join(', '),
+         'values': req.body
+      });
 
-   //    res.render('products', {
-   //       'products': products,
-   //       'games': games,
-   //    });
-   // });
-
-
+      let name = req.body.name;
+      let email = req.body.email;
+      let subject = req.body.subject;
+      let message = req.body.message;
+      let contactDate = new Date();
+   
+      let return_message = [];
+      if (name == undefined || name == '') {
+         return_message.push('Navn mangler');
+      }
+      if (email == undefined || email == '') {
+         return_message.push('Email mangler');
+      }
+      if (subject == undefined || subject == '') {
+         return_message.push('Emne mangler');
+      }
+      if (message == undefined || message == '') {
+         return_message.push('Beskedteksten mangler');
+      }
+   
+      if (return_message.length > 0) {
+         let categories = await getCategories();
+         res.render('contact', {
+            'categories': categories,
+            'return_message': return_message.join(', '),
+            'values': req.body
+         });
+      
+      } else {
+         res.send(req.body);
+      }
+      
+   });
 
 };

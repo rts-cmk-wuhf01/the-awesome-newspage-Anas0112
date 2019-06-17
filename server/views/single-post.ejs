@@ -134,17 +134,9 @@
                             </div>
                         </div>
 
-                        <% if(typeof comments != 'undefined'){ %>
-
-                        <% if(comments.length == 0){ %>
-                            <h2>No Comments Found</h2>
-                        <% } %>
-
-                        <% comments.forEach(comment =>{ %>
-
                         <!-- Comment Area Start -->
                         <div class="comment_area clearfix">
-                            <h5 class="title"><%= comment.lenght %> Comments</h5>
+                            <h5 class="title"></h5>
                             
                             <ol>
                                 <!-- Single Comment Area -->
@@ -153,13 +145,13 @@
                                     <div class="comment-content d-flex">
                                         <!-- Comment Author -->
                                         <div class="comment-author">
-                                            <img src="/img/bg-img/<%= user_image %>" alt="author">
+                                            <img src="/img/bg-img/" alt="author">
                                         </div>
                                         <!-- Comment Meta -->
                                         <div class="comment-meta">
-                                            <a href="#" class="post-author"><%= user_name %></a>
-                                            <a href="#" class="post-date"><%= comment_postdate %></a>
-                                            <p><%= comment_text %></p>
+                                            <a href="#" class="post-author"></a>
+                                            <a href="#" class="post-date"></a>
+                                            <p></p>
                                         </div>
                                     </div>
                                     <ol class="children">
@@ -168,13 +160,13 @@
                                             <div class="comment-content d-flex">
                                                 <!-- Comment Author -->
                                                 <div class="comment-author">
-                                                    <img src="/img/bg-img/<%= user_image %>" alt="author">
+                                                    <img src="/img/bg-img/" alt="author">
                                                 </div>
                                                 <!-- Comment Meta -->
                                                 <div class="comment-meta">
-                                                    <a href="#" class="post-author"><%= user_name %></a>
-                                                    <a href="#" class="post-date"><%= comment_postdate %></a>
-                                                    <p><%= comment_text %></p>
+                                                    <a href="#" class="post-author"></a>
+                                                    <a href="#" class="post-date"></a>
+                                                    <p></p>
                                                 </div>
                                             </div>
                                         </li>
@@ -187,21 +179,18 @@
                                     <div class="comment-content d-flex">
                                         <!-- Comment Author -->
                                         <div class="comment-author">
-                                            <img src="/img/bg-img/<%= user_image %>" alt="author">
+                                            <img src="/img/bg-img/" alt="author">
                                         </div>
                                         <!-- Comment Meta -->
                                         <div class="comment-meta">
-                                            <a href="#" class="post-author"><%= user_name %></a>
-                                            <a href="#" class="post-date"><%= comment_postdate %></a>
-                                            <p><%= comment_text %></p>
+                                            <a href="#" class="post-author"></a>
+                                            <a href="#" class="post-date"></a>
+                                            <p></p>
                                         </div>
                                     </div>
                                 </li>
                             </ol>
-                        </div>
-
-                        <% }); %>
-                        <% } %>
+						</div>
 
                         <div class="post-a-comment-area section-padding-80-0">
                             <h4>Leave a comment</h4>
