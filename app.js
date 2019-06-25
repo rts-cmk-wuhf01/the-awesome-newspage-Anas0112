@@ -27,6 +27,8 @@ app.set('views', './server/views');
  * dette sker igennem en ny fil, for at splitte koden op i smartere blokke */
 require('./server/routes/routes.js')(app);
 
+require("./server/routes/admin_categories.js")(app);
+
 /* sæt serveren op så den kan servere html/css/javascript
  * og billeder direkte fra public mappen, efter alle routes er kørt */
 app.use(express.static('public'));
@@ -49,3 +51,9 @@ app.locals.dateAndTime.locale('dk');
 app.locals.dateAndTime.setLocales('dk',{
    'A': ['AM', 'PM']
 });
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+   extended: true
+}));

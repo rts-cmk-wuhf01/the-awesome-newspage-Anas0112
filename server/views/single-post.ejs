@@ -34,7 +34,6 @@
 
 
 					<% if(typeof article != 'undefined'){ %>
-
                         <!-- Single Featured Post -->
                         <div class="single-blog-post featured-post single-post">
                             <div class="post-thumb">
@@ -58,7 +57,6 @@
                                                 <li><a href="#">stock market</a></li>
                                             </ul>
                                         </div>
-                                        
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center post-like--comments">
                                             <a href="#" class="post-like"><img src="/img/core-img/like.png" alt=""> <span><%= article.article_likes %></span></a>
@@ -68,19 +66,19 @@
                                 </div>
                             </div>
 						</div>
-                        
+					<% } %>
+
                         <!-- About Author -->
                         <div class="blog-post-author d-flex">
                             <div class="author-thumbnail">
-                                <img src="/img/bg-img/<%= article.author_image %>" alt="">
+                                <img src="/img/bg-img/32.jpg" alt="">
                             </div>
                             <div class="author-info">
-                                <a href="#" class="author-name"><%= article.author_name %> , <span>The Author</span></a>
-                                <p><%= article.author_about %></p>
+                                <a href="#" class="author-name">James Smith, <span>The Author</span></a>
+                                <p>Donec turpis erat, scelerisque id euismod sit amet, fermentum vel dolor. Nulla facilisi. Sed pellen tesque lectus et accu msan aliquam. Fusce lobortis cursus quam, id mattis sapien.</p>
                             </div>
                         </div>
-                    <% } %>
-                        
+
                         <div class="pager d-flex align-items-center justify-content-between">
                             <div class="prev">
                                 <a href="#" class="active"><i class="fa fa-angle-left"></i> previous</a>
@@ -89,11 +87,11 @@
                                 <a href="#">Next <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
-                        
+
                         <div class="section-heading">
                             <h6>Related</h6>
                         </div>
-                        
+
                         <div class="row">
                             <!-- Single Post -->
                             <div class="col-12 col-md-6">
@@ -113,7 +111,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <!-- Single Post -->
                             <div class="col-12 col-md-6">
                                 <div class="single-blog-post style-3 mb-80">
@@ -136,8 +134,8 @@
 
                         <!-- Comment Area Start -->
                         <div class="comment_area clearfix">
-                            <h5 class="title"></h5>
-                            
+                            <h5 class="title">3 Comments</h5>
+
                             <ol>
                                 <!-- Single Comment Area -->
                                 <li class="single_comment_area">
@@ -145,13 +143,13 @@
                                     <div class="comment-content d-flex">
                                         <!-- Comment Author -->
                                         <div class="comment-author">
-                                            <img src="/img/bg-img/" alt="author">
+                                            <img src="/img/bg-img/30.jpg" alt="author">
                                         </div>
                                         <!-- Comment Meta -->
                                         <div class="comment-meta">
-                                            <a href="#" class="post-author"></a>
-                                            <a href="#" class="post-date"></a>
-                                            <p></p>
+                                            <a href="#" class="post-author">Christian Williams</a>
+                                            <a href="#" class="post-date">April 15, 2018</a>
+                                            <p>Donec turpis erat, scelerisque id euismod sit amet, fermentum vel dolor. Nulla facilisi. Sed pellen tesque lectus et accu msan aliquam. Fusce lobortis cursus quam, id mattis sapien.</p>
                                         </div>
                                     </div>
                                     <ol class="children">
@@ -160,13 +158,13 @@
                                             <div class="comment-content d-flex">
                                                 <!-- Comment Author -->
                                                 <div class="comment-author">
-                                                    <img src="/img/bg-img/" alt="author">
+                                                    <img src="/img/bg-img/31.jpg" alt="author">
                                                 </div>
                                                 <!-- Comment Meta -->
                                                 <div class="comment-meta">
-                                                    <a href="#" class="post-author"></a>
-                                                    <a href="#" class="post-date"></a>
-                                                    <p></p>
+                                                    <a href="#" class="post-author">Sandy Doe</a>
+                                                    <a href="#" class="post-date">April 15, 2018</a>
+                                                    <p>Donec turpis erat, scelerisque id euismod sit amet, fermentum vel dolor. Nulla facilisi. Sed pellen tesque lectus et accu msan aliquam. Fusce lobortis cursus quam, id mattis sapien.</p>
                                                 </div>
                                             </div>
                                         </li>
@@ -179,18 +177,18 @@
                                     <div class="comment-content d-flex">
                                         <!-- Comment Author -->
                                         <div class="comment-author">
-                                            <img src="/img/bg-img/" alt="author">
+                                            <img src="/img/bg-img/32.jpg" alt="author">
                                         </div>
                                         <!-- Comment Meta -->
                                         <div class="comment-meta">
-                                            <a href="#" class="post-author"></a>
-                                            <a href="#" class="post-date"></a>
-                                            <p></p>
+                                            <a href="#" class="post-author">Christian Williams</a>
+                                            <a href="#" class="post-date">April 15, 2018</a>
+                                            <p>Donec turpis erat, scelerisque id euismod sit amet, fermentum vel dolor. Nulla facilisi. Sed pellen tesque lectus et accu msan aliquam. Fusce lobortis cursus quam, id mattis sapien.</p>
                                         </div>
                                     </div>
                                 </li>
                             </ol>
-						</div>
+                        </div>
 
                         <div class="post-a-comment-area section-padding-80-0">
                             <h4>Leave a comment</h4>
